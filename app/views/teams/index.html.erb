@@ -1,12 +1,12 @@
 <table>
   <tr>
-    <td>Creature</td>
-    <td>Last Name</td>
+    <th>Creature</th>
+    <th>Last Name</th>
   </tr>
   <% @teams.each do |team_hash|%>
     <tr>
-        <td><%= team_hash["first_name"]%></td> 
-        <td><%= team_hash["last_name"]%></td> 
+        <td><%= team_hash["creature"]%></td> 
+        <td><%= team_hash["name"]%></td> 
     </tr>
   <% end %>
 </table> 

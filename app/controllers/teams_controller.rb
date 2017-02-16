@@ -9,7 +9,7 @@ class TeamsController < ApplicationController
 
   end
   def create
-    @team = Unirest.post("http://localhost:3000/api/v2/teams.json", :headers => {"Accept"=> "application/json"}, :parameters => {:creature => params[:creature], :name => [:name], :state => params[:state], :sport => params[:sport]}
+    @team = Unirest.post("http://localhost:3000/api/v2/teams.json", :headers => {"Accept"=> "application/json"}, :parameters => {:creature => params[:creature], :name => params[:name], :state => params[:state], :sport => params[:sport]}).body
       redirect_to "/teams/#{@team['id']}"
 
   end
