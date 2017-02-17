@@ -3,7 +3,8 @@ class TeamsController < ApplicationController
     @teams = Unirest.get("http://localhost:3000/api/v2/teams.json").body
   end
   def show
-    @team = Unirest.get("http://localhost:3000/api/v2/teams/#{params[:id]}.json").body
+    team_hash = Unirest.get("http://localhost:3000/api/v2/teams/#{params[:id]}.json").body
+    @team = Team.new(team_hash)
   end
   def new
  

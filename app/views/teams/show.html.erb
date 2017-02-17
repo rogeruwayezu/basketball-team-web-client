@@ -1,5 +1,5 @@
-<h1>Creature: <%= @team["creature"] %> </h1>
- <h1>Name:<%= @team ["name"]%></h1>
- <h1>State:<%= @team["state"]%></h1>
- <h1>Sport<%= @team["sport"]%></h1>
- <%= link_to "Delete Team", "/teams/#{@team["id"]}", method: :delete %>
+<h1>Creature: <%= @team.creature %> </h1>
+ <h1>Name:<%= @team.name%></h1>
+ <h1>State:<%= @team.state%></h1>
+ <h1>Sport<%= @team.sport%></h1>
+ <%= link_to "Delete Team", "/teams/#{@team.id}", method: :delete %>
