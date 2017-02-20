@@ -1,16 +1,15 @@
 class TeamsController < ApplicationController
   def index
-    @teams = Unirest.get("http://localhost:3000/api/v2/teams.json").body
+   @teams = Team.all
   end
   def show
-    team_hash = Unirest.get("http://localhost:3000/api/v2/teams/#{params[:id]}.json").body
-    @team = Team.new(team_hash)
+    @team = Team.find(params[:id])
   end
   def new
  
   end
   def create
-    @team = Unirest.post("http://localhost:3000/api/v2/teams.json", :headers => {"Accept"=> "application/json"}, :parameters => {:creature => params[:creature], :name => params[:name], :state => params[:state], :sport => params[:sport]}).body
+      
       redirect_to "/teams/#{@team['id']}"
 
   end
@@ -24,7 +23,8 @@ class TeamsController < ApplicationController
 
   end
   def destroy
-    @team = Unirest.delete("http://localhost:3000/api/v2/teams/#{params[:id]}.json").body
+    @team = Team.find(params[:id])
+    @team.destroy
     redirect_to "/teams"
   end
 end
